@@ -16,4 +16,7 @@ class Post(Model):
     class Meta:
         verbose_name = 'postHa'
         verbose_name_plural = 'addPost'
-
+    # def __unicode__(self):
+    #     return  "somethig"
+    def __str__(self):
+        return "objects "
