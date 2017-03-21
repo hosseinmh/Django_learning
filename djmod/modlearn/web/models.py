@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models import Model
 from django.utils.encoding import smart_text
+from django.utils import timezone
 #from django.utils.timezone import
 
 # Create your models here.
@@ -19,14 +20,14 @@ class Post(Model):
     content = models.TextField(null=True, blank=True )
     publish = models.CharField(max_length=120,choices=PUBLISH_CHOICES , default='draft')
     view_count =models.IntegerField(default=0)
-    publish_date = models.DateField(auto_now=False , auto_now_add=False)
+    publish_date = models.DateField(auto_now=False , auto_now_add=False ,default=timezone.now)
 
 
 
     class Meta:
         verbose_name = 'postHa'
         verbose_name_plural = 'addPost'
-        unique_together = [('active' , 'title')]
+        #unique_together = [('active' , 'title')]
 
     def __str__(self):
         return smart_text(self.title)
