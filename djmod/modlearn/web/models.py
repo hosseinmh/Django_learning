@@ -9,5 +9,7 @@ class Post(Model):
     title = models.CharField(max_length=240 , default='new post' ,verbose_name='post title')
     # add a verbose name to show a name on view but didnt change a name in database
     content = models.TextField(null=True , blank=True)
-    pass
+    class Meta:
+        verbose_name = 'postHa'
+        verbose_name_plural = 'addPost'
 
