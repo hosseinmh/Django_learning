@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models import Model
+from django.utils.encoding import smart_text
 # Create your models here.
 
 PUBLISH_CHOICES = (
@@ -19,4 +20,4 @@ class Post(Model):
     # def __unicode__(self):
     #     return  "somethig"
     def __str__(self):
-        return self.title 
+        return smart_text(self.title)
