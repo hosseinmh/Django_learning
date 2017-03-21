@@ -14,10 +14,14 @@ class Post(Model):
     # add a verbose name to show a name on view but didnt change a name in database
     content = models.TextField(null=True, blank=True)
     publish = models.CharField(max_length=120,choices=PUBLISH_CHOICES , default='draft')
+    view_count =models.IntegerField(default=0)
+    publish_date = models.DateField(auto_now=False , auto_now_add=True)
+
+
+
     class Meta:
         verbose_name = 'postHa'
         verbose_name_plural = 'addPost'
-    # def __unicode__(self):
-    #     return  "somethig"
+
     def __str__(self):
         return smart_text(self.title)
