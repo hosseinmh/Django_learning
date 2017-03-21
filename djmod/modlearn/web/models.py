@@ -19,4 +19,4 @@ class Post(Model):
     # def __unicode__(self):
     #     return  "somethig"
     def __str__(self):
-        return "objects "
+        return self.title
