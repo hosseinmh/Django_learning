@@ -31,8 +31,7 @@ class Post(Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
-        # print("here")
-        # self.title = 'the title is changed '
+        
         super(Post, self).save(*args, **kwargs)
 
     class Meta:
