@@ -1,6 +1,8 @@
 from django.db import models
 from django.db.models import Model
 from django.utils.encoding import smart_text
+#from django.utils.timezone import
+
 # Create your models here.
 
 PUBLISH_CHOICES = (
@@ -10,9 +12,11 @@ PUBLISH_CHOICES = (
 class Post(Model):
     id =models.BigAutoField(primary_key=True)
     active = models.BooleanField(default= True) # can empty in the database
-    title = models.CharField(max_length=240 , default='new post' ,verbose_name='post title')
+    title = models.CharField(max_length=240 , default='new post' ,verbose_name='post title', unique=True)
+
     # add a verbose name to show a name on view but didnt change a name in database
-    content = models.TextField(null=True, blank=True)
+
+    content = models.TextField(null=True, blank=True )
     publish = models.CharField(max_length=120,choices=PUBLISH_CHOICES , default='draft')
     view_count =models.IntegerField(default=0)
     publish_date = models.DateField(auto_now=False , auto_now_add=False)
