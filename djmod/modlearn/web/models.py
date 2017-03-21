@@ -26,6 +26,7 @@ class Post(Model):
     class Meta:
         verbose_name = 'postHa'
         verbose_name_plural = 'addPost'
+        unique_together = [('active' , 'title')]
 
     def __str__(self):
         return smart_text(self.title)
