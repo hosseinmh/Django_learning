@@ -4,6 +4,7 @@ from django.utils.encoding import smart_text
 from django.utils import timezone
 from django.core.exceptions import ValidationError
 from django.utils.text import slugify
+from django.db.models.signals import post_save
 
 from .validators import auther_email
 
