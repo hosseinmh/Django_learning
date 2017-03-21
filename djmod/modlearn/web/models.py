@@ -30,7 +30,7 @@ class Post(Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            if self.title
+            if self.title:
                 self.slug = slugify(self.title)
 
         super(Post, self).save(*args, **kwargs)
