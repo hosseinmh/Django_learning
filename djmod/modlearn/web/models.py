@@ -2,8 +2,13 @@ from django.db import models
 from django.db.models import Model
 from django.utils.encoding import smart_text
 from django.utils import timezone
-#from django.utils.timezone import
+from django.core.exceptions import ValidationError
 
+def auther_email(value):
+    if "@" in value:
+        return value
+    else:
+        raise ValidationError("Not a valid email")
 # Create your models here.
 
 PUBLISH_CHOICES = (
@@ -21,7 +26,7 @@ class Post(Model):
     publish = models.CharField(max_length=120,choices=PUBLISH_CHOICES , default='draft')
     view_count =models.IntegerField(default=0)
     publish_date = models.DateField(auto_now=False , auto_now_add=False ,default=timezone.now)
-     
+    author_email = models.CharField(max_length=240 , null=True , blank=True , validators=[auther_email])
 
 
     class Meta:
