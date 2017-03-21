@@ -3,12 +3,7 @@ from django.db.models import Model
 from django.utils.encoding import smart_text
 from django.utils import timezone
 from django.core.exceptions import ValidationError
-
-def auther_email(value):
-    if "@" in value:
-        return value
-    else:
-        raise ValidationError("Not a valid email")
+from .validators import auther_email
 # Create your models here.
 
 PUBLISH_CHOICES = (
