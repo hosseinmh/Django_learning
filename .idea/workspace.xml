@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b702a2fd-c6a6-4292-95c2-8b479f3d818f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/djmod/modlearn/db.sqlite3" afterPath="$PROJECT_DIR$/djmod/modlearn/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/djmod/modlearn/web/models.py" afterPath="$PROJECT_DIR$/djmod/modlearn/web/models.py" />
     </list>
     <ignored path="Django_learning.iws" />
@@ -30,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/djmod/modlearn/web/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="189">
-              <caret line="34" column="49" selection-start-line="32" selection-start-column="7" selection-end-line="34" selection-end-column="49" />
+              <caret line="22" column="80" selection-start-line="22" selection-start-column="80" selection-end-line="22" selection-end-column="80" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -445,7 +444,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1366" height="744" extended-state="7" />
+    <frame x="0" y="24" width="1366" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27045456" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -589,7 +588,7 @@
     <entry file="file://$PROJECT_DIR$/djmod/modlearn/web/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
-          <caret line="34" column="49" selection-start-line="32" selection-start-column="7" selection-end-line="34" selection-end-column="49" />
+          <caret line="22" column="80" selection-start-line="22" selection-start-column="80" selection-end-line="22" selection-end-column="80" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>

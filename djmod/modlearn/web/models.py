@@ -19,7 +19,13 @@ PUBLISH_CHOICES = (
 class Post(Model):
     id = models.BigAutoField(primary_key=True)
     active = models.BooleanField(default=True)  # can empty in the database
-    title = models.CharField(max_length=240, default='new post', verbose_name='post title', unique=True)
+    title = models.CharField(max_length=240, default='new post', verbose_name='post title', unique=True
+                             #, editable=True if set to flase didnt show a field
+                             , error_messages={
+            "unique":"this title is not unique" ,
+            "required":"the field is required" ,
+            "blank":"this is blank field"
+        } , help_text="must be a unique title")
 
     # add a verbose name to show a name on view but didnt change a name in database
     slug = models.SlugField(null=True, blank=True)
