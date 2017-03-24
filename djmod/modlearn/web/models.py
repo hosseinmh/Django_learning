@@ -4,7 +4,7 @@ from django.utils.encoding import smart_text
 from django.utils import timezone
 from django.core.exceptions import ValidationError
 from django.utils.text import slugify
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, pre_save
 
 from .validators import auther_email
 
@@ -22,7 +22,7 @@ class Post(Model):
     title = models.CharField(max_length=240, default='new post', verbose_name='post title', unique=True)
 
     # add a verbose name to show a name on view but didnt change a name in database
-    slug = models.SlugField(null=True , blank=True)
+    slug = models.SlugField(null=True, blank=True)
     content = models.TextField(null=True, blank=True)
     publish = models.CharField(max_length=120, choices=PUBLISH_CHOICES, default='draft')
     view_count = models.IntegerField(default=0)
@@ -30,9 +30,9 @@ class Post(Model):
     author_email = models.EmailField(max_length=240, null=True, blank=True, validators=[auther_email])
 
     def save(self, *args, **kwargs):
-        if not self.slug:
-            if self.title:
-                self.slug = slugify(self.title)
+        # if not self.slug:
+        #     if self.title:
+        #         self.slug = slugify(self.title)
 
         super(Post, self).save(*args, **kwargs)
 
@@ -43,3 +43,25 @@ class Post(Model):
 
     def __str__(self):
         return smart_text(self.title)
+
+#
+# def post_save_receiver():
+#     pass
+
+
+def post_save_receiver(sender, instance, created , *args , **kwargs):
+
+    if created:
+        print("in recieiver")
+        if not instance.slug and instance.title:
+            instance.slug = slugify(instance.title)
+            instance.save()
+
+post_save.connect(post_save_receiver, sender=Post)
+
+def post_pre_save_reciever(sender,instance,*args,**kwargs):
+    print("before save")
+    if not instance.slug and instance.title:
+        instance.slug = slugify(instance.title)
+        instance.save()
+pre_save.connect(post_pre_save_reciever ,sender=Post)
