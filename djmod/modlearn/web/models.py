@@ -22,10 +22,11 @@ class Post(Model):
     title = models.CharField(max_length=240, default='new post', verbose_name='post title', unique=True
                              #, editable=True if set to flase didnt show a field
                              , error_messages={
-            "unique":"this title is not unique" ,
-            "required":"the field is required" ,
+            "unique":"this title is not unique",
+            "required":"the field is required",
             "blank":"this is blank field"
-        } , help_text="must be a unique title")
+            }
+            , help_text="must be a unique title")
 
     # add a verbose name to show a name on view but didnt change a name in database
     slug = models.SlugField(null=True, blank=True)
@@ -34,6 +35,8 @@ class Post(Model):
     view_count = models.IntegerField(default=0)
     publish_date = models.DateField(auto_now=False, auto_now_add=False, default=timezone.now)
     author_email = models.EmailField(max_length=240, null=True, blank=True, validators=[auther_email])
+    updated = models.DateTimeField(auto_now=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
         # if not self.slug:
